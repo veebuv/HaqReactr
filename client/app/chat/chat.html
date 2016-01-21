@@ -1,0 +1,16 @@
+<div ng-show="visible()" id="chatContainer">
+  <div id="chatWindow" scroll-glue>
+    <p ng-class="{private: message.private, sys: (message.username==='SYSTEM')}" ng-repeat="message in messages">{{message.private}}
+      <span class="user" ng-style="{'color':'{{nameToColor(message.username)}}'}" ng-click="sendPrivateMessage(message)">{{message.username}}: </span>
+      <span class="text">{{message.text}}</span>
+    </p>
+  </div>
+  <div id="usersWindow">
+    <div id="usersWindowHeader">Users Online: {{users.length}}</div>
+    <div id="usersWindowDisplay" scroll-glue>
+      <p ng-repeat="user in users" ng-style="{'color':'{{nameToColor(user.username)}}'}" ng-click="sendPrivateMessage(user)">{{user.username}}</p>
+    </div>
+  </div>
+  <input on-enter="sendMessage()" type="text" ng-model="message">
+  <button type="button" ng-click="sendMessage()">Send</button>
+</div>

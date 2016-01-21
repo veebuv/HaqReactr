@@ -1,0 +1,55 @@
+<div class='container-fluid' style="margin:70px">
+  <div class="row">
+
+
+<form name="codeShareForm" ng-submit="codeShareForm.$valid &&submitCodeShare()">
+      <div class="row">
+
+        <div class="input-field col s6">
+          <input id="title" name="title" type="text" class="validate" placeholder="Title" aria-describedby="basic-addon1" ng-model="newCodeShare.title" ng-maxlength="20" required>
+          <label class="active" for="title">Title</label>
+
+          <div class="validation-err" ng-show='codeShareForm.title.$error.maxlength'>Title must contain less than 20 characters</div>
+
+        </div>
+
+        <div class="input-field col s6">
+          <input id="description" name="description" type="text" class="validate" placeholder="Description" aria-describedby="basic-addon1" ng-model="newCodeShare.description" ng-maxlength="55" required>
+          <label class="active" for="description">Description</label>
+
+          <div class="validation-err" ng-show='codeShareForm.description.$error.maxlength'>Description must contain less than 55 characters</div>
+        </div>
+
+
+        <div class="input-field col s12">
+          <textarea name="" id="code" cols="30" class="materialize-textarea" ng-model="newCodeShare.code"aria-describedby="basic-addon1" style="font-family:monospace; overflow-x: scroll; white-space: nowrap;" required></textarea>
+          <label class="active" for="code">Code</label>
+        </div>
+    
+  
+        <div class="input-field col s6">
+          <input id="tag" name="tag" type="text" class="validate" placeholder="Tag" aria-describedby="basic-addon1" ng-model="tag" ng-maxlength="12">
+          <label class="active" for="tag">Tag</label>
+
+          <div class="validation-err" ng-show='codeShareForm.tag.$error.maxlength'>Tag name must contain less than 12 characters</div>
+        </div>
+
+        <div class="input-field col s6">
+          <button ng-click="addTag()" type="button" class="btn waves-effect waves-light">Add Tag</button>
+        </div>
+
+
+        <div class="col s12">
+          <span ng-repeat="tag in newCodeShare.tags">
+            <button ng-click="removeTag(tag)" type="button" class="btn waves-effect waves-light" style="margin:10px; background-color:#22A3EF">{{tag}}</button>
+          </span>
+        </div>
+
+      </div>
+        <button class="btn waves-effect waves-light col s12" type="submit">Submit CodeShare</button>
+      </form>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,14 @@
+{
+  "name": "hr-alumni",
+  "version": "0.0.0",
+  "homepage": "https://github.com/HRR-TeamTesla/hr-alumni",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.2.0",
+    "Materialize": "materialize#~0.97.5",
+    "angular-ui-bootstrap": "~1.0.3",
+    "angular-scroll-glue": "~2.0.6",
+    "angular-sanitize": "~1.4.8"
+  }
+}

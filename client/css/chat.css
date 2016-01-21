@@ -1,0 +1,88 @@
+#chatContainer {
+  width: 800px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+#chatWindow {
+  font-size: 16px;
+  width: 575px;
+  height: 250px;
+  border: 2px solid #26A69A;
+  border-radius: 2px;
+  overflow: auto;
+  background-color: white;
+  display: inline-block;
+}
+
+#usersWindow {
+  width: 225px;
+  height: 250px;
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  height: 250px;
+  border: 2px solid #26A69A;
+  border-left: none;
+  float: right;
+  text-align: center;
+  cursor:  default;
+}
+
+#usersWindowHeader {
+  font-size: 22px;
+  height: 13%;
+  font-weight: bold;
+  border-bottom: 2px solid #26A69A;
+}
+
+#usersWindowDisplay {
+  height: 87%;
+  overflow: auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#usersWindowDisplay p {
+  padding: 1px;
+  margin: 1px;
+}
+
+#chatContainer input {
+  width: 90%;
+  font-size: 20px;
+}
+
+#chatContainer button {
+  font-size: 20px;
+  padding: 1px;
+  margin-left: 15px;
+  border: 2px solid #9E9E9E;
+  background-color: white;
+}
+
+#chatContainer button:hover {
+  border: 2px solid #26A69A;
+  color: #26A69A;
+}
+
+#chatWindow p {
+  margin: 0px;
+  padding: 5px;
+  line-height: 100%;
+}
+
+#chatWindow .user {
+  font-weight: bold;
+}
+
+#chatWindow .text {}
+
+#chatWindow .private {
+  font-style: oblique;
+}
+
+#chatWindow .sys {
+  font-weight: bold;
+  color: red;
+}

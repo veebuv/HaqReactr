@@ -1,0 +1,17 @@
+<div class="modal-body">
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>File</span>
+            <input type='file' ng-model-instant onchange="angular.element(this).scope().resumeUpload(event)" multiple />
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+        </div>
+    </div>
+
+    <div class="btn-block btn" ng-click="submitResume()">
+       Submit Resume
+    </div>
+
+</div>
+

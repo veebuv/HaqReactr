@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="s12 col">
+
+      <h3>CodeShare</h3>
+      <button ng-click="createCodeShare()" class="btn waves-effect waves-light col s12" style="margin-bottom:50px; margin-top:20px;">Create a New CodeShare</button>
+      <br>
+      <div>
+        <form class="forms forms-inline input-field ">
+          <input type="text" class="input-big width-50" id="query" ng-model="query">
+          <label for="query"style="margin-top:50px;">Filter</label>
+        </form>
+        
+      </div>
+      <ul class="collection">
+        <li class="collection-item avatar animated fadeInUp" style="-webkit-animation-duration:{{$index * 300}}ms; padding-left:20px;" ng-repeat="code in codeShares | orderBy: '-upvotes' | filter:query ">
+        <div class="s3 col" style="padding-top:15px;">
+          <span class="upvote-count">{{code.upvotes}}</span>
+          <button ng-show="!hasVoted(code)" ng-click="upvote(code)" class="upvote-btn" >+1</button>
+        </div>
+        <div class="s9 col">
+          
+          <a href="" ng-click="codeDetailsModal(code)" class="modal-trigger title"> {{ code.title }}</a>
+          <div>
+          <label>Tagged</label>
+            <span ng-repeat="tag in code.tags | limitTo: 3" class="code-tag">{{ tag }}</span>
+          </div>
+        </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="codeDetailsModal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <div class="row">
+        <div class="l2 col">
+        </div>
+        <div class="l10 col">
+          <img style="margin: 10px" height="150px" width="auto" ng-src="{{code.createdBy.contact.profilePic}}" alt="" class="align-center circle">
+          <h3>{{ code.title }}</h3>
+          <label>Created By: </label> {{code.createdBy.contact.name}}
+          <br>
+          <label>Tags</label>
+          <div>
+            <span ng-repeat="tag in code.tags | limitTo: 5" class="code-tag">{{tag}}</span>
+          </div>
+          <br/>
+          <label>Description</label> {{code.description}}
+          <br/>
+          <label>Code</label> <pre>{{code.code}}</pre>
+          <br/>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><a class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a></div>
+  </div>
+</div>

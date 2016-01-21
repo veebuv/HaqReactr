@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="bower_components/Materialize/dist/css/materialize.min.css" type="text/css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/chat.css" type="text/css" media="screen,projection"/>
+  </head>
+
+  <body ng-app="app" ng-controller="AppCtrl">
+    
+    <!-- Header Nav -->
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo" ui-sref="app.home">HR Alumni</a>
+
+        <ul class="right hide-on-med-and-down">
+          <li><a ng-show="loggedIn()" ui-sref="app.profiles">Classmates</a></li>
+          <li><a ng-show="loggedIn()" ui-sref="app.jobPostings">Job Postings</a></li>
+          <li><a ng-show="loggedIn()" ui-sref="app.codeShare">Code Share</a></li>
+          <li><a ng-show="!loggedIn()" ui-sref="app.login">Login</a></li>
+          <li><a ng-show="loggedIn()" ng-click="logout()">Hi, {{user.name}} (Logout)</a></li>
+        </ul>
+
+        <ul id="slide-out" class="side-nav">
+          <li><a ng-show="loggedIn()" ui-sref="app.profiles">Classmates</a></li>
+          <li><a ng-show="loggedIn()" ui-sref="app.jobPostings">Job Postings</a></li>
+          <li><a ng-show="loggedIn()" ui-sref="app.codeShare">Code Share</a></li>
+          <li><a ng-show="!loggedIn()" ui-sref="app.login">Login</a></li>
+          <li><a ng-show="loggedIn()" ng-click="logout()">Logout</a></li>
+        </ul>
+        <a data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+      </div>
+    </nav>
+
+
+    <div class="container">
+      <div ui-view="mainContent"></div>
+    </div>
+
+    <div ui-view="chat"></div>
+
+    <!-- Libraries -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script> <!--Import jQuery before materialize.js-->
+    <script src="bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-scroll-glue/src/scrollglue.js"></script>
+
+    <!-- Factories/Services -->
+    <script src="app/jobPostings/services/jobPostingFactory.js" ></script>
+    <script src="app/_common/httpFactory.js"></script>
+    <script src="app/_common/profileFactory.js"></script>
+    <script src="app/_common/userFactory.js"></script>
+    <script src="app/chat/chatFactory.js"></script>
+    <script src="app/codeShare/codeShareFactory.js"></script>
+
+
+    <!-- Controllers -->
+    <script src="app/appCtrl.js"></script>
+    <script src="app/home/homeCtrl.js"></script>
+    <script src="app/login/loginCtrl.js"></script>
+    <script src="app/auth/authCtrl.js"></script>
+    <script src="app/profiles/profilesCtrl.js"></script>
+    <script src="app/updateProfile/updateProfileCtrl.js"></script>
+    <script src="app/codeShare/codeShareCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingPost/jobPostingPostCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingSearch/jobPostingSearchCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingSpecific/jobPostingSpecificCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingApply/jobPostingsApplyCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingAppliedJob/jobPostingAppliedJobCtrl.js"></script>
+    <script src="app/jobPostings/jobPostingPostedJob/jobPostingPostedJobCtrl.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/chat/chatCtrl.js"></script>
+    <script src="init.js"></script>
+
+  </body>
+</html>
